@@ -10,7 +10,7 @@ if __name__ == "__main__":
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
     a = int(args[1])
-    b = int(argsif args[2] == '+':
+    b = int(args[3])
     if args[2] == '+':
         print("{} {} {} = {}".format(a, args[2], b, add(a, b)))
     elif args[2] == '-':
