@@ -17,5 +17,5 @@ if __name__ == "__main__":
         print("{} {} {} = {}".format(a, args[2], b, sub(a, b)))
     elif args[2] == '*':
         print("{} {} {} = {}".format(a, args[2], b, mul(a, b)))
-    elif args[2] == '/'
+    elif args[2] == '/':
         print("{} {} {} = {}".format(a, args[2], b, div(a, b)))
