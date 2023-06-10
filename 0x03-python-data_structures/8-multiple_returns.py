@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 def multiple_returns(sentence):
-    for i in sentence:
-        if not sentence:
-            return len(sentence), None
-        len_str = len(sentence)
-        prime = sentence[0]
-        return len_str, prime
+    len_str = len(sentence)
+    if sentence:
+        first = sentence[0]
+    else:
+        first = None
+    return (len_str, first)
