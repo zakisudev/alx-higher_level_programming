@@ -4,5 +4,5 @@ def square_matrix_simple(matrix=[]):
         return [[]]
     if len(matrix[0] == 0):
         return [[]]
-    new_matrix = [[(x ** 2) for row in matrix] for x in row]
+    new_matrix = [[[(x ** 2) for row in matrix] for x in row]]
     return new_matrix
