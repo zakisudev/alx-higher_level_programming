@@ -8,5 +8,5 @@ def roman_to_int(roman_string):
         if x > 0 and rom[roman_string[x]] > rom[roman_string[x - 1]]:
             con += rom[roman_string[x]] - 2 * rom[roman_string[x - 1]]
         else:
-            con += rom[roman_string[i]]
+            con += rom[roman_string[x]]
     return con
