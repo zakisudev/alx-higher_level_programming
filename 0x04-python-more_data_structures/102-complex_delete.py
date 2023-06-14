@@ -3,7 +3,7 @@ def complex_delete(a_dictionary, value):
     new = a_dictionary.copy()
     try:
         for x in new:
-            if y == a_dictionary[x]:
+            if value == a_dictionary[x]:
                 del a_dictionary[x]
         return (a_dictionary)
     except KeyError:
