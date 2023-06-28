@@ -54,25 +54,26 @@ class SinglyLinkedList:
         Args:
             value (Node): The new Node to insert
         """
-        new = Node(value)
+        new_node = Node(value)
         if self.__head is None:
-            new.next_head = None
-            self.__head = new
+            new_node.next_node = None
+            self.__head = new_node
         elif self.__head.data > value:
-            new.next_node = self.__head
-            self.__head = new
+            new_node.next_node = self.__head
+            self.__head = new_node
         else:
             temp = self.__head
-            while (temp.next_node is not None and temp.next_node.data < value):
+            while (temp.next_node is not None and
+                    temp.next_node.data < value):
                 temp = temp.next_node
-                new.next_node = temp.next_node
-                temp.next_node = new
+            new_node.next_node = temp.next_node
+            temp.next_node = new_node
 
     def __str(self):
         " Define the print() representation of Singly Linked List "
-        val = []
+        linkedList = []
         temp = self.__head
         while temp is not None:
-            val.append(str(temp.data))
+            linkedList.append(str(temp.data))
             temp = temp.next_node
-        return ('\n'.join(val))
+        return ('\n'.join(linkedList))
