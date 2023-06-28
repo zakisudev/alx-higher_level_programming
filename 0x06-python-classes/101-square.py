@@ -5,12 +5,12 @@
 class Square:
     " Represent a new square "
 
-    def __init__(sef, size=0, position=(0, 0)):
-        """ Initializes anew square
+    def __init__(self, size=0, position=(0, 0)):
+        """Initialize a new square.
 
         Args:
-            size (int): The size of the new square
-            position (int, int): the position of the new square
+            size (int): The size of the new square.
+            position (int, int): The position of the new square.
         """
         self.size = size
         self.position = position
@@ -35,7 +35,7 @@ class Square:
 
     @position.setter
     def position(self, value):
-        if (not isinstance(value, int) or len(value) != 2 or
+        if (not isinstance(value, tuple) or len(value) != 2 or
                 not all(isinstance(n, int) for n in value) or
                 not all(n >= 0 for n in value)):
             raise TypeError("position must be a tuple of 2 integers")
