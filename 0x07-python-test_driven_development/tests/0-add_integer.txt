@@ -1,0 +1,64 @@
+By using the "add_integer" function
+-----------------------------------
+
+Import the function from the module:
+	>>> add_integer = __import__("0-add_integer").add_integer
+
+Check for module documentation:
+	 >>> mod = __import__("0-add_integer").__doc__
+	 >>> len(mod) > 1
+	 True
+
+Check for function documentation:
+	 >>> fun = __import__("0-add_integer").add_integer.__doc__
+         >>> len(fun) > 1
+         True
+
+Check positive addition:
+	 >>> add_integer(1, 2)
+	 3
+
+Check positive with negative addition:
+	 >>> add_integer(2, -1)
+	 1
+
+Check negative with positive addition:
+	 >>> add_integer(-2, 1)
+	 -1
+
+Check float with int addition:
+	 >>> add_integer(1.2, 2)
+	 3
+
+
+Check both float addition:
+	 >>> add_integer(1.22, 2.11)
+	 3
+
+Check for passed NaN:
+	 >>> add_integer(1, float('nan'))
+	 Traceback (most recent call last):
+	 ...
+	 ValueError: cannot convert float NaN to integer
+
+Check super long int:
+	 >>> add_integer(999999999999999999999999999999, 1)
+	 1000000000000000000000000000000
+
+Check non-number with number addition:
+	 >>> add_integer([1], 2)
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: a must be an integer
+
+Check bool with number:
+	 >>> add_integer(True, 1)
+	 Traceback (most recent call last):
+         ...
+         TypeError: a must be an integer
+
+Check no args:
+	 >>> add_integer()
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: add_integer() missing 1 required positional argument: 'a'
