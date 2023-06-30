@@ -1,0 +1,41 @@
+By using the "print_square" function
+-----------------------------------
+
+Import the function from the module:
+        >>> print_square = __import__("4-print_square").print_square
+
+Check for module documentation:
+        >>> mod = __import__("4-print_square").__doc__
+        >>> len(mod) > 1
+        True
+
+Check for function documentation:
+        >>> fun = __import__("4-print_square").print_square.__doc__
+        >>> len(fun) > 1
+        True
+
+Test for basic input
+        >>> print_square = __import__("4-print_square").print_square
+        >>> print_square(4)
+        ####
+        ####
+        ####
+        ####
+
+Test for wrong type
+        >>> print_square("Hi")
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+
+Test for float and zero
+        >>> print_square(0.314)
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+
+Test for negative numbers
+        >>> print_square(-123)
+        Traceback (most recent call last):
+        ...
+       	ValueError: size must be >= 0
