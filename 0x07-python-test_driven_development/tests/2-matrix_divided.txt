@@ -1,0 +1,63 @@
+By using the "matrix_divided" function
+-----------------------------------
+
+Import the function from the module:
+	>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+
+Check for module documentation:
+        >>> mod = __import__("2-matrix_divided").__doc__
+        >>> len(mod) > 1
+        True
+
+Check for function documentation:
+        >>> fun = __import__("2-matrix_divided").matrix_divided.__doc__
+        >>> len(fun) > 1
+        True
+
+Test for basic input
+	>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+	>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 7)
+	[[0.14, 0.29, 0.43], [0.57, 0.71, 0.86]]
+
+Test for devision with large div
+	>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+	>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 789)
+	[[0.0, 0.0, 0.0], [0.01, 0.01, 0.01]]
+
+Test with negative div
+	>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+	>>> matrix_divided([[1, 2, 3], [4, 5, 6]], -7)
+	[[-0.14, -0.29, -0.43], [-0.57, -0.71, -0.86]]
+
+Test for float div
+	>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+	>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 7.8)
+	[[0.13, 0.26, 0.38], [0.51, 0.64, 0.77]]
+
+Test for None input
+	>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+	>>> matrix_divided(None, None)
+	Traceback (most recent call last):
+	...    	
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Test for wrong type
+	>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+	>>> matrix_divided("string", 52)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Test for different rows
+	>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+	>>> matrix_divided([[1, 2, 3, 4], [5, 6, 7]], 2.5)
+	Traceback (most recent call last):
+	...
+	TypeError: Each row of the matrix must have the same size
+
+Test for div equal zero
+	>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+	>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 0)
+	Traceback (most recent call last):
+	...
+	ZeroDivisionError: division by zero
