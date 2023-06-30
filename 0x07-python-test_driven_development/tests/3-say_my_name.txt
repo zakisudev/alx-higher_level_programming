@@ -1,0 +1,35 @@
+By using the "say_my_name" function
+-----------------------------------
+
+Import the function from the module:
+	>>> say_my_name = __import__("3-say_my_name").say_my_name
+
+Check for module documentation:
+        >>> mod = __import__("3-say_my_name").__doc__
+        >>> len(mod) > 1
+        True
+
+Check for function documentation:
+        >>> fun = __import__("3-say_my_name").say_my_name.__doc__
+        >>> len(fun) > 1
+        True
+
+Test for basic input
+	>>> say_my_name("Zaki", "Moh")
+	My name is Zaki Moh
+
+Test for first_name only
+        >>> say_my_name("Zaki")
+        My name is Zaki 
+
+Test with no input
+        >>> say_my_name()
+	Traceback (most recent call last):
+	...
+	TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+Test for wrong type
+        >>> say_my_name(56)
+        Traceback (most recent call last):
+        ...
+        TypeError: first_name must be a string
