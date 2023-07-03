@@ -68,10 +68,10 @@ class Rectangle():
         return a string representation of the
         rectangle to be able to recreate a new instance by using eval()
         """
-        return 'Rectangle({:d}, {:d})'.format(self.width, self.height)
+        return ('Rectangle({:d}, {:d})'.format(self.width, self.height))
 
     def __del__(self):
-        """ 
+        """
         Print Bye rectangle... when an instance of a rectangle is deleted
         """
         print("Bye rectangle...")
