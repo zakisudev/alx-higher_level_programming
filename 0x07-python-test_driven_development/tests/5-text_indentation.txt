@@ -1,0 +1,37 @@
+By using the "text_indentation" function
+----------------------------------------
+
+Import the function from the module:
+        >>> text_indentation = __import__("5-text_indentation").text_indentation
+
+Check for module documentation:
+        >>> mod = __import__("5-text_indentation").__doc__
+        >>> len(mod) > 1
+        True
+
+Check for function documentation:
+        >>> fun = __import__("5-text_indentation").text_indentation.__doc__
+        >>> len(fun) > 1
+        True
+
+Test for basic input
+        >>> text_indentation("The quick. brown fox: jumps over? the lazy dog")
+	The quick.
+	<BLANKLINE>
+    	brown fox:
+	<BLANKLINE>
+    	jumps over?
+	<BLANKLINE>
+    	the lazy dog
+
+Test for wrong type
+        >>> text_indentation(123456789)
+        Traceback (most recent call last):
+        ...
+        TypeError: text must be a string
+
+test for Empty input
+        >>> text_indentation()
+        Traceback (most recent call last):
+        ...
+        TypeError: text_indentation() missing 1 required positional argument: 'text'
