@@ -54,11 +54,11 @@ class Rectangle():
         """ Prints a # depending on the width and height """
         matrix = ''
         if (self.__width == 0 or self.__height == 0):
-            return ('')
+            return ("")
         else:
             for row in range(self.__height):
                 for col in range(self.__width):
                     matrix += "#"
-                if col < self.__height -1:
+                if row < self.__height - 1:
                     matrix += '\n'
             return (matrix)
