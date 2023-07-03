@@ -62,6 +62,7 @@ class Rectangle():
                 if row < self.__height - 1:
                     matrix += '\n'
             return (matrix)
+
     def __repr__(self):
         """
         return a string representation of the
