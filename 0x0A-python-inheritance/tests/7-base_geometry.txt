@@ -35,3 +35,35 @@ check for floating number
 	Traceback (most recent call last):
 	...
 	TypeError: age must be an integer
+
+check for None input
+	>>> bg.integer_validator("input", None)
+	Traceback (most recent call last):
+	...
+	TypeError: input must be an integer
+
+check for list input
+	>>> bg.integer_validator("list", [1, 2, 3, 4])
+	Traceback (most recent call last):
+	...
+	TypeError: list must be an integer
+
+check for no inputs
+	>>> bg.integer_validator()
+	Traceback (most recent call last):
+	...
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+check for one input only
+	>>> bg.integer_validator("name")
+	Traceback (most recent call last):
+	...
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+check for area instance method
+	>>> bg.area()
+	Traceback (most recent call last):
+	  File "<stdin>", line 1, in <module>
+          bg.area()
+	...
+	Exception: area() is not implemented
