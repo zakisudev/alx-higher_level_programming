@@ -1,0 +1,37 @@
+By using the "integer_validator function
+========================================
+
+
+Import the function from base_geometry module
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> bg = BaseGeometry()
+
+check for module docstring:
+>>> md = __import__("7-base_geometry").__doc__
+>>> len(md) > 1
+True
+
+check for string inputs:
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+
+check for 0 age input
+	>>> bg.integer_validator("age", 0)
+	Traceback (most recent call last):
+	...
+	ValueError: age must be greater than 0
+
+check for negative input
+	>>> bg.integer_validator("distance", -4)
+	Traceback (most recent call last):
+	...
+	ValueError: distance must be greater than 0
+
+check for floating number
+	>>> bg.integer_validator("age", 5.1)
+	Traceback (most recent call last):
+	...
+	TypeError: age must be an integer
