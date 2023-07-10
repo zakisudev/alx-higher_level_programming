@@ -1,6 +1,6 @@
-Import function module from Mylist
+Import function module from MyList
 
->>> Mylist = __import__('1-my_list').Mylist
+>>> Mylist = __import__('1-my_list').MyList
 
 >>> my_list = Mylist()
 >>> my_list.append(1)
@@ -12,5 +12,5 @@ Import function module from Mylist
 [1, 5, 2, 4, 3]
 >>> my_list.print_sorted()
 [1, 2, 3, 4, 5]
->>> print_mylist(my_list)
+>>> print(my_list)
 [1, 5, 2, 4, 3]
