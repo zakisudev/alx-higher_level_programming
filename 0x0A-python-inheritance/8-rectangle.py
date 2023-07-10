@@ -5,6 +5,8 @@ BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 """ A base class that inherits from Basegeometry class """
+
+
 class Rectangle(BaseGeometry):
 
     """ instaniates width and height and
