@@ -9,5 +9,4 @@ class MyList(list):
 
     def print_sorted(self):
         """ Process the list attribute and print sorted list """
-        sorted_list = sorted(self)
-        print(sorted_list)
+        print(sorted(self))
