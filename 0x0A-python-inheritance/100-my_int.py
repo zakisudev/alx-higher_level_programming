@@ -3,14 +3,15 @@
 
 
 class MyInt(int):
-    def __init__(self, val):
-        """ Initilizes with val """
-        self.val = val
+    """ Initializes with value """
 
-    def __eq__(self, val):
+    def __init__(self, value):
+        self.value = value
+
+    def __eq__(self, value):
         """ returns the opposite of equal """
-        return self.val != val
+        return self.value != value
 
-    def __ne__(self, val):
+    def __ne__(self, value):
         """ return the opposite of not equal """
-        return self.val == val
+        return self.value == value
