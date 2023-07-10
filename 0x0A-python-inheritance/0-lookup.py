@@ -1,6 +1,7 @@
 #!/usr/bin/python3
+""" Defines my lookup function  """
+
+
 def lookup(obj):
-    if isinstance(obj, list):
-        return obj
-    else:
-        return []
+    """ returns a list """
+    return (dir(obj))
