@@ -18,6 +18,3 @@ class BaseGeometry:
         """ Raise a valueerror if value is less or equal to 0 """
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
-
-        self.name = name
-        self.value = value
