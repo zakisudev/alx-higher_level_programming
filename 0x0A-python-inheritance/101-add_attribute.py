@@ -9,4 +9,4 @@ def add_attribute(obj, att, value):
         raise TypeError("can't add new attributes")
 
     """ sets the attribute value """
-    setattr(obj, attribute, value)
+    setattr(obj, att, value)
