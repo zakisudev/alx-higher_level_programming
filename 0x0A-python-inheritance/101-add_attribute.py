@@ -2,11 +2,11 @@
 """ Defines a function to add attributes if possible """
 
 
-def add_attribute(obj, att, value):
+def add_attribute(obj, attribute, value):
 
     """ checks if not possible """
     if not hasattr(obj, "__dict__"):
         raise TypeError("can't add new attribute")
 
     """ sets the attribute value """
-    setattr(obj, att, value)
+    setattr(obj, attribute, value)
