@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+""" A module to search and write after specific string """
+
+
 def append_after(filename="", search_string="", new_string=""):
+    """ append after function """
     words = ""
     with open(filename, encoding="UTF-8") as fr:
         for line in fr:
