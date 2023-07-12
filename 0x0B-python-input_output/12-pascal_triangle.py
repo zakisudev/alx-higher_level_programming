@@ -4,7 +4,7 @@
 
 def pascal_triangle(n):
     """ defines a pascal triangle of size n """
-    if n<= 0:
+    if n <= 0:
         return []
 
     tris = [[1]]
