@@ -21,4 +21,4 @@ class Student:
 
         """ replace all attrs of the Student """
         for x, y in json.items():
-            setaatr(seff, x, y)
+            setaatr(self, x, y)
