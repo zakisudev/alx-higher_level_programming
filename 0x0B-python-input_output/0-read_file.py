@@ -3,5 +3,7 @@
 
 
 def read_file(filename=""):
-    with open(filename, 'r', encoding="UTF-8") as f:
+    """ takes an input filename and prints to stdout  """
+
+    with open(filename, mode='r', encoding="UTF-8") as f:
         print(f.read(), end="")
