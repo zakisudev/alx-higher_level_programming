@@ -3,15 +3,13 @@
 
 
 class Student:
-    """ public attributes """
+    """ initializes Student class """
     def __init__(self, first_name, last_name, age):
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
-    """ public method to return the dictionary
-    represetation of a Student """
-    def to_json(self, attrs):
+    def to_json(self, attrs=None):
 
         """ Check and represent in json """
         if(type(attrs) == list and all(type(e) == str for e in attrs)):
