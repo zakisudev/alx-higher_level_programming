@@ -11,8 +11,9 @@ class Student:
 
     """ public method to return the dictionary
     represetation of a Student """
-    def to_json(self):
-        if(type(attrs)  == list and
-                all(type(e) == str for e in attrs)):
+    def to_json(self, attrs):
+
+        """ Check and represent in json """
+        if(type(attrs) == list and all(type(e) == str for e in attrs)):
             return {a: getattr(self, a) for a in attrs if hasattr(self, a)}
         return self.__dict__
