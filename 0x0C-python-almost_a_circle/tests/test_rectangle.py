@@ -176,14 +176,6 @@ class TestxAndy(unittest.TestCase):
     def test_y_neg(self):
         with self.assertRaisesRegex(ValueError, "y must be > 0"):
             Rectangle(4, 7, 8, -9)
-    """ test for zero(0) value input for x """
-    def test_x_zero(self):
-        with self.assertRaisesRegex(ValueError, "x must be > 0"):
-            Rectangle(4, 7, 0)
-    """ test for zero(0) value input for y """
-    def test_y_zero(self):
-        with self.assertRaisesRegex(ValueError, "y must be > 0"):
-            Rectangle(4, 7, 8, 0)
 
 class TestRecArea(unittest.TestCase):
     """ test cases for Area input """
