@@ -1,6 +1,9 @@
 """ Import modules for test cases for Rectanlge subclass """
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
+from io import StringIO
+import sys
 
 
 class TestRectangle(unittest.TestCase):
@@ -34,9 +37,9 @@ class TestRectangle(unittest.TestCase):
         rec = Rectangle(4, 7, 8, 9, 6)
         self.assertEqual(4, rec.width)
     """ test for getting height """
-    def test_getting_height(slef):
+    def test_getting_height(self):
         rec = Rectangle(4, 7, 8, 9, 6)
-        self.asssertEqual(7, rec.height)
+        self.assertEqual(7, rec.height)
     """ test for setting width """
     def test_setting_width(self):
         rec = Rectangle(4, 7, 8, 9, 6)
@@ -81,6 +84,7 @@ class TestRectangle(unittest.TestCase):
     def test_private_y(self):
         with self.assertRaises(AttributeError):
             print(Rectangle(4, 7, 8, 9, 6).__y)
+
 
 class TestWidthAndHeight(unittest.TestCase):
     """ Test case for width and height vars """
@@ -134,6 +138,7 @@ class TestWidthAndHeight(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "height must be > 0"):
             Rectangle(4, 0)
 
+
 class TestXAndY(unittest.TestCase):
 
     """ test for float input x """
@@ -170,12 +175,13 @@ class TestXAndY(unittest.TestCase):
             Rectangle(4, 7, 8, {9, 6})
     """ test for negative value for x """
     def test_x_neg(self):
-        with self.assertRaisesRegex(ValueError, "x must be > 0"):
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             Rectangle(4, 7, -8)
     """ test for negative value for y """
     def test_y_neg(self):
-        with self.assertRaisesRegex(ValueError, "y must be > 0"):
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             Rectangle(4, 7, 8, -9)
+
 
 class TestRecArea(unittest.TestCase):
     """ test cases for Area input """
@@ -196,6 +202,7 @@ class TestRecArea(unittest.TestCase):
         with self.assertRaises(TypeError):
             rec.area(5)
 
+
 class TestRectangle_stdout(unittest.TestCase):
     """ Unittest for testing __str__ and display methods """
 
@@ -209,7 +216,7 @@ class TestRectangle_stdout(unittest.TestCase):
         Returns:
             The text printed to stdout by calling method on sq.
         """
-        capture = io.StringIO()
+        capture = StringIO()
         sys.stdout = capture
         if method == "print":
             print(rect)
@@ -256,23 +263,23 @@ class TestRectangle_stdout(unittest.TestCase):
     def test_display_width_height(self):
         r = Rectangle(2, 3, 0, 0, 0)
         capture = TestRectangle_stdout.capture_stdout(r, "display")
-        self.assertEqual("##\n##\n##\n", capture.getvalue())
+        self.assertEqual("######", capture.getvalue())
 
     def test_display_width_height_x(self):
         r = Rectangle(3, 2, 1, 0, 1)
         capture = TestRectangle_stdout.capture_stdout(r, "display")
-        self.assertEqual(" ###\n ###\n", capture.getvalue())
+        self.assertEqual(" ### ###", capture.getvalue())
 
     def test_display_width_height_y(self):
         r = Rectangle(4, 5, 0, 1, 0)
         capture = TestRectangle_stdout.capture_stdout(r, "display")
-        display = "\n####\n####\n####\n####\n####\n"
+        display = "\n####################"
         self.assertEqual(display, capture.getvalue())
 
     def test_display_width_height_x_y(self):
         r = Rectangle(2, 4, 3, 2, 0)
         capture = TestRectangle_stdout.capture_stdout(r, "display")
-        display = "\n\n   ##\n   ##\n   ##\n   ##\n"
+        display = "\n\n   ##   ##   ##   ##"
         self.assertEqual(display, capture.getvalue())
 
     def test_display_one_arg(self):
@@ -549,6 +556,7 @@ class TestRectangle_to_dictionary(unittest.TestCase):
         r = Rectangle(10, 2, 4, 1, 2)
         with self.assertRaises(TypeError):
             r.to_dictionary(1)
+
 
 if __name__ == "__main__":
     unittest.main()
