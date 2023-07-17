@@ -8,7 +8,7 @@ class Square(Rectangle):
 
     """ Initializes the Square class """
     def __init__(self, size, x=0, y=0, id=None):
-        self.size = size 
+        self.size = size
         super().__init__(size, size, x, y, id)
 
     """ String presentation of the result """
@@ -26,7 +26,6 @@ class Square(Rectangle):
         self.width = value
         self.height = value
         self.__size = value
-
     """ updating arguments to attributes """
     def update(self, *args, **kwargs):
         if len(args) > 0:
