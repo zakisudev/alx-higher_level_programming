@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """  Base Class """
-
-""" Import json module to work with json function """
 import json
 import os
+from os import path
 
 
 class Base:
@@ -27,8 +26,8 @@ class Base:
     def to_json_string(list_dictionaries):
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
-        jsn = json.dumps(list_dictionaries)
-        return jsn
+        else:
+            return json.dumps(list_dictionaries)
 
     """ Writing JSON string to list_objs file """
     @classmethod
@@ -65,8 +64,8 @@ class Base:
 
         if cls.__name__ == 'Rectangle':
             tmp = cls(1, 1)
-        elif cls__name__ == 'Square':
-            temp = cls(1)
+        elif cls.__name__ == 'Square':
+            tmp = cls(1)
         tmp.update(**dictionary)
         return tmp
 
@@ -97,17 +96,13 @@ class Base:
                 and all(isinstance(i, cls) for i in list_objs)):
             raise TypeError("list_objs must be a list of instances")
 
-        file_name = cls.__name__ + '.csv'
-        with open(file_name, 'w', encoding="UTF-8") as f:
+        file_name = cls.__name__ + ".csv"
+        dic = []
+        with open(file_name, "w") as f:
             if list_objs is not None:
-                list_objs = [i.to_dictionary() for i in list_objs]
-                if cls.__name__ == 'Rectangle':
-                    fld = ['id', 'width', 'height', 'x', 'y']
-                elif cls.__name__ == 'Square':
-                    fld = ['id', 'size', 'x', 'y']
-                wrt = csv.DictWriter(f, fieldnames=fld)
-                wrt.writeheader()
-                wrt.writerows(list_objs)
+                for obj in list_objs:
+                    dic.append(obj.to_dictionary())
+            f.write(cls.to_json_string(dic))
 
     @classmethod
     def load_from_file_csv(cls):
@@ -116,24 +111,16 @@ class Base:
         Returns: list of instances
         """
 
-        file_name =cls.__name__ + '.csv'
-        tmp = []
-
-        if os.path.exists(file_name):
-            with open(file_name, 'r', encoding="UTF-8") as f:
-                rdr = csv.reader(f, delimeter=',')
-                if cls.__name__ == 'Rectangle':
-                    fld = ['id', 'width', 'height', 'x', 'y']
-                elif cls.__name__ == 'Square':
-                    fld = ['id', 'size', 'x', 'y']
-                for i, row in enumerate(rdr):
-                    if i > 0:
-                        x = cls(1, 1)
-                        for j, k in enumerate(row):
-                            if k:
-                                setattr(x, fld[j], int(k))
-                        tmp.append(x)
-        return tmp
+        file_name = cls.__name__ + ".csv"
+        if path.exists(file_name):
+            with open(file_name, "r") as f:
+                objL = []
+                csvL = Base.from_json_string(f.read())
+                for obj in csvL:
+                    objL.append(cls.create(**obj))
+                return objL
+        else:
+            return []
 
     @staticmethod
     def draw(list_rectangles, list_squares):
