@@ -1,7 +1,10 @@
 """ Unittest for Base class """
 
 import unittest
+import os
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 class TestBase_class(unittest.TestCase):
@@ -11,24 +14,26 @@ class TestBase_class(unittest.TestCase):
     def test_create_instance(self):
         b1 = Base()
         b2 = Base()
-        assertEqual(b1.id, b2.id - 1)
+        self.assertEqual(b1.id, b2.id - 1)
 
     """ creating instances with 'None' as an arg """
     def test_None_arg(self):
         b1 = Base(None)
         b2 = Base(None)
-        assertEqual(b1.id, b2.id - 1)
+        self.assertEqual(b1.id, b2.id - 1)
 
     """ creating instances with ids """
     def test_create_with_id(self):
-        asserEqual(Base(47).id, 47)
+        self.assertEqual(Base(47).id, 47)
 
     """ create ids after unique ids """
-    def test_nb_after_unique(slef):
+    def test_nb_after_unique(self):
         b1 = Base()
-        b2 = Base(47)
+        b2 = Base(4)
         b3 = Base()
-        asserEqual(b1.id, b3.id)
+        self.assertEqual(b1.id, b3.id - 1)
+
+
 class TestBase_to_json_string(unittest.TestCase):
     """Unittests for testing to_json_string method of Base class."""
 
@@ -66,6 +71,7 @@ class TestBase_to_json_string(unittest.TestCase):
     def test_to_json_string_more_than_max_arg(self):
         with self.assertRaises(TypeError):
             Base.to_json_string([], 1)
+
 
 class TestBase_save_to_file(unittest.TestCase):
     """ Unittests for testing save_to_file method of Base class """
@@ -132,6 +138,7 @@ class TestBase_save_to_file(unittest.TestCase):
         with self.assertRaises(TypeError):
             Square.save_to_file([], 1)
 
+
 class TestBase_from_json_string(unittest.TestCase):
     """Unittests for testing from_json_string method of Base class."""
 
@@ -168,9 +175,10 @@ class TestBase_from_json_string(unittest.TestCase):
         with self.assertRaises(TypeError):
             Base.from_json_string([], 1)
 
+
 class TestBase_create(unittest.TestCase):
     """ Unittests for testing create method of Base class """
-    
+
     """ test for creating rectangle """
     def test_create_rectangle_new(self):
         rec1 = Rectangle(4, 7, 8, 9, 6)
@@ -195,6 +203,7 @@ class TestBase_create(unittest.TestCase):
         sq1_dictionary = sq1.to_dictionary()
         sq2 = Square.create(**sq1_dictionary)
         self.assertNotEqual(sq1, sq2)
+
 
 class TestBase_load_from_file(unittest.TestCase):
     """ Unittests for testing load_from_file_method of Base class """
@@ -299,6 +308,7 @@ class TestBase_save_to_file_csv(unittest.TestCase):
         with self.assertRaises(TypeError):
             Square.save_to_file_csv([], 1)
 
+
 class TestBase_load_from_file_csv(unittest.TestCase):
     """ Unittests for testing load_from_file_csv method from Base class """
 
@@ -335,6 +345,7 @@ class TestBase_load_from_file_csv(unittest.TestCase):
     def test_load_from_file_csv_more_than_max_arg(self):
         with self.assertRaises(TypeError):
             Base.load_from_file_csv([], 1)
+
 
 if __name__ == "__main__":
     unittest.main()
