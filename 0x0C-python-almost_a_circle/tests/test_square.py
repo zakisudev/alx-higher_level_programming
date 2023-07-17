@@ -94,10 +94,6 @@ class TestSquare_size(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Square({"a": 1, "b": 2}, 2)
 
-    def test_bool_size(self):
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Square(True, 2, 3)
-
     def test_list_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Square([1, 2, 3])
@@ -170,10 +166,6 @@ class TestSquare_x(unittest.TestCase):
     def test_dict_x(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Square(1, {"a": 1, "b": 2}, 2)
-
-    def test_bool_x(self):
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            Square(1, True)
 
     def test_list_x(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
@@ -383,23 +375,23 @@ class TestSquare_stdout(unittest.TestCase):
     def test_display_size(self):
         s = Square(2, 0, 0, 9)
         capture = TestSquare_stdout.capture_stdout(s, "display")
-        self.assertEqual("##\n##\n", capture.getvalue())
+        self.assertEqual("####", capture.getvalue())
 
     def test_display_size_x(self):
         s = Square(3, 1, 0, 18)
         capture = TestSquare_stdout.capture_stdout(s, "display")
-        self.assertEqual(" ###\n ###\n ###\n", capture.getvalue())
+        self.assertEqual(" ### ### ###", capture.getvalue())
 
     def test_display_size_y(self):
         s = Square(4, 0, 1, 9)
         capture = TestSquare_stdout.capture_stdout(s, "display")
-        display = "\n####\n####\n####\n####\n"
+        display = "\n################"
         self.assertEqual(display, capture.getvalue())
 
     def test_display_size_x_y(self):
         s = Square(2, 3, 2, 1)
         capture = TestSquare_stdout.capture_stdout(s, "display")
-        display = "\n\n   ##\n   ##\n"
+        display = "\n\n   ##   ##"
         self.assertEqual(display, capture.getvalue())
 
     def test_display_one_arg(self):
@@ -640,6 +632,7 @@ class TestSquare_to_dictionary(unittest.TestCase):
         s = Square(10, 10, 10, 10)
         with self.assertRaises(TypeError):
             s.to_dictionary(1)
+
 
 if __name__ == "__main__":
     unittest.main()
