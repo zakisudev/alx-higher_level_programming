@@ -9,22 +9,21 @@ from models.base import Base
 class Rectangle(Base):
     
     def __init__(self, width, height, x=0, y=0, id=None):
-    """ Initializes the Rectangle class that inherits from Base class
+        """ Initializes the Rectangle class that inherits from Base class
 
-    Args:
-        width(int): width of the instance Rectangle
-        height(int): height of the instance Rectangle
-        x(int): x of the instance. Default to 0
-        y(int): y of the instance. Default to 0
-        id(int): id of the instance. Default to None
-    """
+        Args:
+            width(int): width of the instance Rectangle
+            height(int): height of the instance Rectangle
+            x(int): x of the instance. Default to 0
+            y(int): y of the instance. Default to 0
+            id(int): id of the instance. Default to None
+        """
         self.width = width
         self.height = height
         self.x = x
         self.y = y
         super().__init__(id)
-
-    """ Decorators for width """
+  
     @property
     def width(self):
         return self.__width
