@@ -7,14 +7,14 @@ from os import path
 
 
 class Base:
+    """ Base class for Rectangle and Square
+
+    Args:
+        id(int): The id of the instacne Default to None
+    """
 
     __nb_objects = 0
 
-    """  Initializes an instance of the class
-
-    Args:
-        id(int): The id of the instance. Default to None
-    """
     def __init__(self, id=None):
         if id is not None:
             self.id = id
