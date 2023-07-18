@@ -22,10 +22,16 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """ returns the width of th rectanlge """
         return self.__width
 
     @width.setter
     def width(self, value):
+        """ sets value to the width of the rectangle
+
+        Args:
+            value(int): the value to assign to width
+        """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -34,10 +40,16 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """ returns the height of the rectangle """
         return self.__height
 
     @height.setter
     def height(self, value):
+        """ sets value to the height of the rectangle
+
+        Args:
+            value(int): the value to assign to height
+        """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -46,9 +58,16 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """ returns the value of x """
         return self.__x
+
     @x.setter
     def x(self, value):
+        """ sets value to the x of the rectangle
+
+        Args:
+            value(int): the value to assign to x
+        """
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
         if value < 0:
@@ -57,10 +76,16 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """ returns the value of y """
         return self.__y
 
     @y.setter
     def y(self, value):
+        """ sets value to the y of the rectangle
+
+        Args:
+            value(int): the value to assign to y
+        """
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
         if value < 0:
@@ -68,9 +93,11 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
+        """ returns the ara of the rectangle """
         return self.width * self.height
 
     def display(self):
+        """ display # reprsentation of the rectangle """
         for i in range(self.y):
             print()
 
@@ -81,10 +108,17 @@ class Rectangle(Base):
                 print("#", end="")
 
     def __str__(self):
+        """ replace the normal string representation """
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
                 self.x, self.y, self.width, self.height))
 
     def update(self, *args, **kwargs):
+        """ replace the vaolues with all values from the arguments
+
+        Args:
+            args: number os arguments
+            kwargs: if args not available dictionary of arguments
+        """
         if len(args) > 0:
             for i in range(len(args)):
                 if i == 0:
@@ -111,6 +145,7 @@ class Rectangle(Base):
                     self.y = vl
 
     def to_dictionary(self):
+        """ dictionary representation of the rectangle """
         dict = {'x': self.x, 'y': self.y, 'id': self.id,
                 'height': self.height, 'width': self.width}
         return dict

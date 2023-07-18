@@ -32,14 +32,26 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """ converts the given list of dictionaries to json string
+
+        Args:
+            list_dictionaries: list of dictionaries
+        """
+
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
         else:
             return json.dumps(list_dictionaries)
 
-    """ Writing JSON string to list_objs file """
     @classmethod
     def save_to_file(cls, list_objs):
+        """ saves the list of objects to file
+
+        Args:
+            cls: belonging to the class
+            list_objs: list of objects
+        """
+
         if list_objs is None or list_objs == []:
             jsn = '[]'
         else:
@@ -79,7 +91,11 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """ Fetches a list of instances """
+        """ Fetches a list of instances
+
+        Args:
+            cls: belonging to the class
+        """
 
         file_name = cls.__name__ + ".json"
         tmp = []
@@ -159,7 +175,12 @@ class Base:
 
     @staticmethod
     def draw_rect(t, rect):
-        """ Rectangle and Square drawing helper """
+        """ Rectangle and Square drawing helper
+
+        Args:
+            t: turtle
+            rect: Rectangle to draw
+        """
 
         t.penup()
         t.setpos(rect.x, rect.y)
