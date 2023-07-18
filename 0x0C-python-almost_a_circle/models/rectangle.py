@@ -4,6 +4,8 @@ from models.base import Base
 
 
 class Rectangle(Base):
+    """ Rectangle class that inherits from Base Parent class """
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """ Initializes the Rectangle class
         that inherits from Base class
@@ -94,7 +96,7 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """ returns the ara of the rectangle """
+        """ returns the area of the rectangle """
         return self.width * self.height
 
     def display(self):
