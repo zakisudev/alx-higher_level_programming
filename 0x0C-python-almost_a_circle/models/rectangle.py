@@ -4,10 +4,6 @@ from models.base import Base
 
 
 class Rectangle(Base):
-    """
-    Rectangle class
-    """
-
     def __init__(self, width, height, x=0, y=0, id=None):
         """ Initializes the Rectangle class
         that inherits from Base class
@@ -37,7 +33,6 @@ class Rectangle(Base):
             raise ValueError("width must be > 0")
         self.__width = value
 
-    """ Decorators for height """
     @property
     def height(self):
         return self.__height
@@ -50,11 +45,9 @@ class Rectangle(Base):
             raise ValueError("height must be > 0")
         self.__height = value
 
-    """ return decorator for x """
     @property
     def x(self):
         return self.__x
-    """ setter decorator for c """
     @x.setter
     def x(self, value):
         if not isinstance(value, int):
@@ -63,7 +56,6 @@ class Rectangle(Base):
             raise ValueError("x must be >= 0")
         self.__x = value
 
-    """ Decorator for y """
     @property
     def y(self):
         return self.__y
@@ -76,11 +68,9 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         self.__y = value
 
-    """ Area calculator """
     def area(self):
         return self.width * self.height
 
-    """ Displaying # """
     def display(self):
         for i in range(self.y):
             print()
@@ -91,12 +81,10 @@ class Rectangle(Base):
             for h in range(self.width):
                 print("#", end="")
 
-    """ String presentation of the result """
     def __str__(self):
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
                 self.x, self.y, self.width, self.height))
 
-    """ Assigning arguments to each attribute """
     def update(self, *args, **kwargs):
         if len(args) > 0:
             for i in range(len(args)):
@@ -123,7 +111,6 @@ class Rectangle(Base):
                 elif ky == 'y':
                     self.y = vl
 
-    """ Dictionary representation of the Rectangle class """
     def to_dictionary(self):
         dict = {'x': self.x, 'y': self.y, 'id': self.id,
                 'height': self.height, 'width': self.width}
