@@ -8,11 +8,14 @@ from os import path
 
 
 class Base:
-    """ Base Class """
+    """
+    Base Class
+    """
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """ Base class that acts as Parent class for Rectangle and Square
+        """ Base class that acts as Parent class
+        for Rectangle and Square
 
         Args:
             id(int): The id of the instacne. Default to None
