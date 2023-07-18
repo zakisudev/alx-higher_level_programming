@@ -1,33 +1,54 @@
 #!/usr/bin/python3
-""" a Square class that inherits from Rectangle class """
-
+""" Square Module """
 from .rectangle import Rectangle
 
 
 class Square(Rectangle):
+    """ Initializes the Square class
 
-    """ Initializes the Square class """
+    Args:
+        Rectangle: The parent class
+    """
     def __init__(self, size, x=0, y=0, id=None):
+        """ Initializes with arguments
+
+        Args:
+            size(int): size of the square
+            x(int): the value of x of the square, Default to 0
+            y(int): the value of y of the square, Default to 0
+            id(int): the id of the sqaure instance, default to None
+        """
         self.size = size
         super().__init__(size, size, x, y, id)
 
-    """ String presentation of the result """
     def __str__(self):
+        """ returns the string representation of the sqaure """
         return ("[Square] ({}) {}/{} - {}".format(self.id,
                 self.x, self.y, self.size))
 
-    """ return value for size """
     @property
     def size(self):
+        """ return the value of size """
         return self.__size
-    """ setting value for size """
+
     @size.setter
     def size(self, value):
+        """ sets value to the size of the sqaure
+
+        Args:
+            value(int): the value to assign to size
+        """
         self.width = value
         self.height = value
         self.__size = value
-    """ updating arguments to attributes """
+
     def update(self, *args, **kwargs):
+        """ replaces values with the arguments to all attribute
+
+        Args:
+            args: arguments of the function
+            kwargs: if args not available, use dictionary values to replace
+        """
         if len(args) > 0:
             for i in range(len(args)):
                 if i == 0:
@@ -49,7 +70,7 @@ class Square(Rectangle):
                 elif ky == 'y':
                     self.y = vl
 
-    """ Dictionary representation of the Square class """
     def to_dictionary(self):
+        """ returns dictionary representation of the sqquare """
         dict = {'id': self.id, 'x': self.x, 'size': self.size, 'y': self.y}
         return dict
