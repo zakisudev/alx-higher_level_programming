@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-"""
-Base Class
-"""
 import json
 import os
 from os import path
@@ -9,16 +6,23 @@ from os import path
 
 class Base:
     """
-    Base Class
+    Base Class.
+
+    This class serves as the base class for other classes.
+    It provides common functionality and attributes.
+
+    Attributes:
+        __nb_objects (int): The number of objects created.
+        id (int): The unique identifier for an instance.
     """
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """ Base class that acts as Parent class
-        for Rectangle and Square
+        """
+        Initializes the Base class.
 
         Args:
-            id(int): The id of the instacne. Default to None
+            id (int, optional): The id for an instance. Defaults to None.
         """
         if id is not None:
             self.id = id
