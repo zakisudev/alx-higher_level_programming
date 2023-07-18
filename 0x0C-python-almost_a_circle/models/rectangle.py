@@ -101,15 +101,12 @@ class Rectangle(Base):
 
     def display(self):
         """ display # reprsentation of the rectangle """
-        for i in range(self.y):
-            print()
-
+        output = "\n" * self.y
         for j in range(self.height):
-            for k in range(self.x):
-                print(" ", end="")
-            for h in range(self.width):
-                print("#", end="")
-
+            output += " " * self.x
+            output += "#" * self.width
+            output += "\n"
+        print(output, end="")
     def __str__(self):
         """ replace the normal string representation """
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
