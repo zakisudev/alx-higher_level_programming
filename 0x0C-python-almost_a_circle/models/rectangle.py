@@ -1,10 +1,14 @@
 #!/usr/bin/python3
-""" a Rectangle class that inherits from Base class """
+"""
+Rectangle module that inherits from Base class
+"""
 from models.base import Base
-""" Import Base class to work with """
+
 
 
 class Rectangle(Base):
+    
+    def __init__(self, width, height, x=0, y=0, id=None):
     """ Initializes the Rectangle class that inherits from Base class
 
     Args:
@@ -14,8 +18,6 @@ class Rectangle(Base):
         y(int): y of the instance. Default to 0
         id(int): id of the instance. Default to None
     """
-
-    def __init__(self, width, height, x=0, y=0, id=None):
         self.width = width
         self.height = height
         self.x = x
