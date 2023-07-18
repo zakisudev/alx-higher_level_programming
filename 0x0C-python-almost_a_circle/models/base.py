@@ -1,16 +1,17 @@
 #!/usr/bin/python3
-"""  Base Class """
+"""
+Base Class
+"""
 import json
 import os
 from os import path
-""" Import modules to work with """
 
 
 class Base:
-    """ Base class for Rectangle and Square
+    """ Base class that acts as Parent class for Rectangle and Square
 
     Args:
-        id(int): The id of the instacne Default to None
+        id(int): The id of the instacne. Default to None
     """
 
     __nb_objects = 0
