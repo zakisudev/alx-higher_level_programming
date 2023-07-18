@@ -1,9 +1,6 @@
 #!/usr/bin/python3
-"""
-Rectangle module that inherits from Base class
-"""
+""" Rectangle module that inherits from Base class """
 from models.base import Base
-
 
 
 class Rectangle(Base):
@@ -24,7 +21,7 @@ class Rectangle(Base):
         self.x = x
         self.y = y
         super().__init__(id)
-  
+
     @property
     def width(self):
         return self.__width
