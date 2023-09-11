@@ -7,7 +7,7 @@ class Rectangle {
     this.width = w;
     this.height = h;
   }
-  print() {
+  print () {
     if (!this.width || !this.height) {
       console.log('Empty Rectangle');
       return;
