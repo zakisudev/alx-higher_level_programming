@@ -7,6 +7,7 @@ class Rectangle {
     this.width = w;
     this.height = h;
   }
+
   print () {
     if (!this.width || !this.height) {
       console.log('Empty Rectangle');
@@ -16,12 +17,14 @@ class Rectangle {
       console.log('X'.repeat(this.width));
     }
   }
+
   rotate () {
     if (!this.width || !this.height) {
       return;
     }
     [this.width, this.height] = [this.height, this.width];
   }
+
   double () {
     if (!this.width || !this.height) {
       return;
@@ -31,4 +34,3 @@ class Rectangle {
   }
 }
 module.exports = Rectangle;
-

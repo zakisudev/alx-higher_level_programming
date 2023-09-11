@@ -11,5 +11,5 @@ const destinationPath = args[2];
 
 const file1Content = fs.readFileSync(file1Path, 'utf8');
 const file2Content = fs.readFileSync(file2Path, 'utf8');
-const concatContent = fileContent + fileContent;
+const concatContent = file1Content + file2Content;
 fs.writeFileSync(destinationPath, concatContent, 'utf8');
