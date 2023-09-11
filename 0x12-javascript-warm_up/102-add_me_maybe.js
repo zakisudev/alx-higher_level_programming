@@ -1,8 +1,8 @@
 #!/usr/bin/node
-function addMaybe (number, theFunction) {
+function addMeMaybe (number, theFunction) {
   number += 1;
   theFunction(number);
 }
 module.exports = {
-	addMaybe;
-}
+  addMeMaybe
+};
