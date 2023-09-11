@@ -1,7 +1,7 @@
 #!/usr/bin/node
 class Rectangle {
   cosntructor (w, h) {
-    if (w <= 0 || h <= 0 !Number.isInteger(w) || !Number.isInteger(h)) {
+    if (w <= 0 || h <= 0 || !Number.isInteger(w) || !Number.isInteger(h)) {
       return this;
     }
     this.width = w;
@@ -12,7 +12,7 @@ class Rectangle {
       console.log('Empty Rectangle');
       return;
     }
-    for (let i = 0; i < this.hwight; i++) {
+    for (let i = 0; i < this.height; i++) {
       console.log('X'.repeat(this.width));
     }
   }
