@@ -1,7 +1,7 @@
 #!/usr/bin/node
-function addMaybe (num, theFunction) {
-  num += 1;
-  theFunction(num);
+function addMaybe (number, theFunction) {
+  number += 1;
+  theFunction(number);
 }
 module.exports = {
 	addMaybe;
