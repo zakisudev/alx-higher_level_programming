@@ -9,11 +9,12 @@ if __name__ == "__main__":
                          user=argv[1],
                          password=argv[2],
                          database=argv[3])
-    """ create cursor """)
+    """ create cursor """
     cur = db.cursor()
-    cu.execute('SELECT*
+    cur.execute('SELECT*
                 FROM states
                 ORDER BY id DESC')
+    """ display the record """
     for rec in cur.fetchall():
         print(rec)
     cur.close()
