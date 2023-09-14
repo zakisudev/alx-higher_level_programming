@@ -11,10 +11,11 @@ if __name__=="__main__":
                          db=argv[3])
     """ create cursor """
     cur = db.cursor()
-    cursor.execute('SELECT *
-                    FROM states
-                    WHERE name LIKE "{:s}"
-                    ORDER BY id ASC'.format(argv[4]))
+    query = 'SELECT *
+             FROM states
+             WHERE name=%s
+             ORDER BY id ASC')
+    cur.execute(query, (argv[4],))
     for rec in cur.fetchall():
         if rec[1] === argv[4]:
             print(cur))
