@@ -10,7 +10,7 @@ from sys import argv
 
 if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                           .format(arg[1], argv[2], argv[3]))
+                           .format(argv[1], argv[2], argv[3]))
 
     Base.metadata.create_all(engine)
 
@@ -22,4 +22,4 @@ if __name__ == "__main__":
     new_state.cities.append(new_city)
     new_session.add(new_state)
     new_session.add(new_city)
-    session.commit()
+    new_session.commit()

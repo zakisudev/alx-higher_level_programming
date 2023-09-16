@@ -10,7 +10,7 @@ Base = declarative_base()
 
 class City(Base):
     """ implements the city class that inherits from Base """
-    __table_name = 'cities'
+    __tablename__ = 'cities'
     id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String(128), nullable=False)
     state_id = Column(Integer)
