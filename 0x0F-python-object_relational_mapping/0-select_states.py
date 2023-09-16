@@ -11,9 +11,7 @@ if __name__ == "__main__":
                          database=argv[3])
     """ create cursor """
     cur = db.cursor()
-    cur.execute('SELECT*
-                FROM states
-                ORDER BY id DESC')
+    cur.execute('SELECT * FROM states ORDER BY id ASC')
     """ display the record """
     for rec in cur.fetchall():
         print(rec)

@@ -2,7 +2,7 @@
 """ fetch states starting with letter N """
 import MySQLdb
 from sys import argv
-if __name__="__main__":
+if __name__=="__main__":
     """ connect to db """
     db = MySQLdb.connect(host='localhost',
                          port=3306,
