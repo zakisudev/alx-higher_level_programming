@@ -2,7 +2,7 @@
 """ display states from the table by searching """
 import MySQLdb
 from sys import argv
-if __name__=="__main__":
+if __name__ == "__main__":
     """ connect to db """
     db = MySQLdb.connect(host='localhost',
                          port=3306,
@@ -12,11 +12,11 @@ if __name__=="__main__":
     """ create cursor """
     cur = db.cursor()
     cursor.execute('SELECT *
-                    FROM states
-                    WHERE name = \'{}\'\
-                    ORDER BY id ASC'.format(argv[4]))
+                   FROM states
+                   WHERE states.name=\'{}\'\
+                   ORDER BY id ASC'.format(argSearch))
     for rec in cur.fetchall():
-        if rec[1] == argv[4]:
+        if rec[1] == argSearch:
             print(cur)
     cur.close()
     db.close()
