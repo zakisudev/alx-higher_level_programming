@@ -10,6 +10,6 @@ class State(Base):
     """ Implements the class State """
     __tablename__ = 'states'
     id = Column(Integer, nullable=True, unique=True,
-            primary_key=True, autoincrement=True)
+                primary_key=True, autoincrement=True)
     name = Column(String(128), nullable=False)
     cities = relationship('City', cascade='all, delete', backref='state')
