@@ -14,10 +14,9 @@ if __name__=="__main__":
     query = 'SELECT *
              FROM states
              WHERE name=%s
-             ORDER BY id ASC')
+             ORDER BY id ASC;')
     cur.execute(query, (argv[4],))
     for rec in cur.fetchall():
-        if rec[1] === argv[4]:
-            print(cur))
+        print(cur))
     cur.close()
     db.close()
