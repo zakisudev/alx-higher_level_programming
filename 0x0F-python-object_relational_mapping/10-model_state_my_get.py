@@ -13,5 +13,5 @@ if __name__ == "__main__":
     new_session = Session()
 
     state = new_session.query(State).filter(State.name == argv[4]).first()
-    print(state.count()) if (state) else print("Not found")
+    print(state.id) if (state) else print("Not found")
     new_session.close()
