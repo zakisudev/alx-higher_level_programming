@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 # Sending DELETE request to a server and displaying the response
 
 if [ $# -eq 0 ]; then
