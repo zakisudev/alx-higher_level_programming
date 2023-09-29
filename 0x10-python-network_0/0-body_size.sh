@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 # request and display the size of the body of the response
 
 if [ $# -eq 0 ]; then
