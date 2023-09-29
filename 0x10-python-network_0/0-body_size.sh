@@ -10,3 +10,4 @@ curl -s -o "$res" "$1"
 res_size=$(stat -c%s "$res")
 
 echo "$res_size"
+rm "$res"
