@@ -1,10 +1,16 @@
 #!/usr/bin/python3
-""" request a url and display the X-Request-Id variable in the response """
-import urllib.request
-
-
-if __name__ == '__main__':
-    with urllib.request.urlopen("https://intranet.hbtn.io/status") as response:
-        html = response.read()
-        print("Body response:\n\t- type: {}\n\t- content: {}\n\t-".format(
-              type(html), html), "utf8 content:", html.decode("utf-8"))
+"""takes in a URL and an email, sends a POST request
+to the passed URL with the email as a parameter
+and displays the body of the response
+"""
+if __name__ == "__main__":
+    import sys
+    import urllib.parse
+    import urllib.request
+    values = {'email': sys.argv[2]}
+    data = urllib.parse.urlencode(values)
+    data = data.encode('ascii')
+    request = urllib.request.Request(sys.argv[1], data=data)
+    with urllib.request.urlopen(request) as response:
+        the_page = response.read().decode('utf-8')
+        print(the_page)
