@@ -1,3 +1,3 @@
 #!/bin/bash
-# displaye the request status
-curl -so /dev/null -w "%{http_code}" $1
+# displays the request status from the server
+curl -s -o /dev/null -w "%{http_code}" $1
