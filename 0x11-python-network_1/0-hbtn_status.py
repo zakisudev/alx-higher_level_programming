@@ -1,13 +1,10 @@
 #!/usr/bin/python3
-""" Fetching a url to print response """
+""" request a url and display the X-Request-Id variable in the response """
 import urllib.request
 
-url = 'https://alx-intranet.hbtn.io/status'
-with urllib.request.urlopen(url) as response:
-    body = response.read()
-    utf8_content = body.decode('utf-8')
-    utf8 = utf8_content.replace('\r', '')
-    print("Body response:")
-    print("\t- type: {}".format(type(body)))
-    print("\t- content: {}".format(body))
-    print("\t- utf8 content: {}".format(utf8_content))
+
+if __name__ == '__main__':
+    with urllib.request.urlopen("https://intranet.hbtn.io/status") as response:
+        html = response.read()
+        print("Body response:\n\t- type: {}\n\t- content: {}\n\t-".format(
+              type(html), html), "utf8 content:", html.decode("utf-8"))
