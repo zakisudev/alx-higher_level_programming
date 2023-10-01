@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ send a request to url and display the response decoded with ut-8 """
 from urllib.request import Request, urlopen
-from urllib,error import HTTPError
+from urllib.error import HTTPError
 import sys
 
 if __name__ == "__main__":
