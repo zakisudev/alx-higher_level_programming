@@ -5,7 +5,7 @@ from urllib.error import HTTPError
 import sys
 
 if __name__ == "__main__":
-    request = Request(sys.rgv[1])
+    request = Request(sys.argv[1])
     try:
         with urlopen(request) as response:
             res = response.read()
