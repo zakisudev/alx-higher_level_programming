@@ -1,16 +1,13 @@
 #!/usr/bin/python3
-"""takes in a URL and an email, sends a POST request
-to the passed URL with the email as a parameter
-and displays the body of the response
+"""takes in a URL https://alx-intranet.hbtn.io/status
 """
+import urllib.request
+
+
 if __name__ == "__main__":
-    import sys
-    import urllib.parse
-    import urllib.request
-    values = {'email': sys.argv[2]}
-    data = urllib.parse.urlencode(values)
-    data = data.encode('ascii')
-    request = urllib.request.Request(sys.argv[1], data=data)
-    with urllib.request.urlopen(request) as response:
-        the_page = response.read().decode('utf-8')
-        print(the_page)
+    with urllib.request.urlopen('https://intranet.hbtn.io/status') as res:
+        html = res.read()
+        print('Body response:')
+        print('\t- type:', type(html))
+        print('\t- content:', html)
+        print('\t- utf8 content:', html.decode('utf-8'))
