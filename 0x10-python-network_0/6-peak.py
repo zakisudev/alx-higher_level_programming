@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+""" Find the peak in an unsorted list """
+
 def peak_rec(arr, l, r):
     """Recursive way"""
     if l == r:
