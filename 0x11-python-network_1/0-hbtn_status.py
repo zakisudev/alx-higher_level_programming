@@ -7,8 +7,7 @@ import urllib.request
 if __name__ == "__main__":
     with urllib.request.urlopen('https://intranet.hbtn.io/status') as res:
         html = res.read()
-        utf = html.decode('utf-8')
-        utf8 = utf.replace('\r', '')
+        utf8 = html.decode('utf-8')
         print('Body response:')
         print('\t- type: {}'.format(type(html)))
         print('\t- content: {}'.format(html))
