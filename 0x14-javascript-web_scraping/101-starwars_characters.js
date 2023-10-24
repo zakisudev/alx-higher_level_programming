@@ -1,9 +1,9 @@
 #!/usr/bin/node
-
 const request = require('request');
 
 const movieId = process.argv[2];
 const url = `https://swapi.dev/api/films/${movieId}/`;
+
 let characters = [];
 
 request(url, (error, response, body) => {
