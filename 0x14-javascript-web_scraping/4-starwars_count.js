@@ -9,7 +9,7 @@ request.get(url, (error, response, body) => {
     console.log(error);
   } else {
     const data = JSON.parse(body);
-    data.result.forEach((film) => {
+    data.results.forEach((film) => {
       film.characters.forEach((character) => {
         if (character.includes(charId)) {
           count += 1;
