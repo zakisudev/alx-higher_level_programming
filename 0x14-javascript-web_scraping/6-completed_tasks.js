@@ -14,6 +14,6 @@ request(process.argv[2], function (err, _res, body) {
       }
       if (completed) ++completedTasks[userId];
     }
-    console.log(conpletedTasks);
+    console.log(completedTasks);
   }
 });
